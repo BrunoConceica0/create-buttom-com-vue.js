@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app" :class="{grid: gridCol}">
+    <div>
+      <label for="">Nome do botão</label>
+      <input v-model.lazy="nome" type="text" name="" id="">
+      <div :class="{flex: tamanhoFonte}">
+        <label for="fontSize">Tamanho da letra</label>
+        <div>
+          <button @click="diminuir">-</button>
+          <button @click="incrementar">+</button>
+        </div>
+        <input v-model="fontSize" type="number" name="fontSize" id="fontSize" min="1" max="100">
+      </div>
+
+      <select v-model="fontFamily" name="fontFamily" id="fontFamily">
+        <option disabled value="">Selecione um fonte</option>
+        <option value="IBM Plex Mono">IBM Plex Mono</option>
+        <option value="Roboto">Roboto</option>
+        <option value="Open Sans">Open Sans</option>
+      </select>
+
+      <label for="background">Seleciona cor de fundo</label>
+      <input v-model="bgColor" type="color" name="background" id="background">
+
+      <label for="color">Cor da letra</label>
+      <input v-model="cor" type="color" name="cor" id="cor">
+
+      <label for="largura">Difine lagura</label>
+      <input v-model="largura" type="range" name="largura" id="largura" min="0" max="500">
+
+      <label for="largura">Difine Tamanho</label>
+      <input v-model="tamanho" type="range" name="tamanho" id="tamanho" min="20" max="300">
+
+      <label for="borderRadius">Difine borda-radius</label>
+      <input v-model="borderRadius" type="range" name="bordeRadius" id="bordeRadius" min="0" max="100">
+    </div>
+    <button :style="{background: bgColor, color: cor, fontFamily: fontFamily, width: largura + 'px', height: tamanho + 'px', borderRadius: borderRadius + 'px', fontSize: fontSize + 'px' }">{{nome}}</button>
+
+    <div>
+      <p></p>
+      <p>width: {{largura}}px;</p>
+      <p>heigth: {{tamanho}}px;</p>
+      <p>font-family: {{fontFamily}};</p>
+      <p>font-size:{{fontSize}}px;</p>
+      <p>borde-radius:{{borderRadius}}px;</p>
+      <p>color:{{cor}};</p>
+      <p>background:{{bgColor}};</p>
+
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
